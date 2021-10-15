@@ -15,7 +15,7 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=viewport content="width=device-width,initial-scale=1">
     <script type="module" src="./src/auth_required.js"></script>
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/main.js" defer></script>
     <style>
         .hideme {
             display: none !important;
@@ -39,6 +39,7 @@
                     </a>
                 </li>
             </ul>
+
             <form class="form-inline my-2 my-lg-0">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown active">
@@ -46,11 +47,12 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="#" class="rounded-circle" id="avatar-image"><span class="todo-profile-name" id="profile-name">Loading ...</span></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                            <a class="dropdown-item" href="#" id="logout-button">Logout</a>
                         </div>
                     </li>
                 </ul>
             </form>
+
         </div>
     </nav>
     <center>

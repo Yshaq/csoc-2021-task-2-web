@@ -1,3 +1,5 @@
+//console.log('main.js executed!');
+
 import axios from 'axios';
 function displaySuccessToast(message) {
     iziToast.success({
@@ -22,7 +24,10 @@ function displayInfoToast(message) {
 
 const API_BASE_URL = 'https://todo-app-csoc.herokuapp.com/';
 
+
+
 function logout() {
+    console.log("logout called!");
     localStorage.removeItem('token');
     window.location.href = '/login/';
 }
@@ -70,11 +75,31 @@ function register() {
 }
 
 function login() {
+    console.log("login function called!");
     /***
      * @todo Complete this function.
-     * @todo 1. Write code for form validation.
+     * @todo 1. Write code for form validation.     * 
      * @todo 2. Fetch the auth token from backend and login the user.
      */
+    const username = document.getElementById("inputUsername").value.trim();
+    const password = document.getElementById("inputPassword").value;
+
+    const dataForApiRequest = {
+        username: username,
+        password: password
+    }
+
+    axios({
+        url: API_BASE_URL + 'auth/login/',
+        method: 'post',
+        data: dataForApiRequest,
+    }).then( res => {
+        console.log(res);
+       localStorage.setItem('token', res.data.token);
+       window.location.href = '/';     
+    }).catch( err => {
+        displayErrorToast('Incorrect username/password');
+    });
 }
 
 function addTask() {
@@ -107,3 +132,18 @@ function updateTask(id) {
      * @todo 2. Update the task in the dom.
      */
 }
+
+function testfun() {
+    console.log("testfun!");
+}
+
+if(document.getElementById("login-button")) {
+    document.getElementById("login-button").addEventListener("click", login);
+
+}
+
+if(document.getElementById("logout-button")) {
+    document.getElementById("logout-button").addEventListener("click", logout);
+
+}
+

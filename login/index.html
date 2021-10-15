@@ -14,7 +14,7 @@
   <meta http-equiv=X-UA-Compatible content="IE=edge">
   <meta name=viewport content="width=device-width,initial-scale=1">
   <script type="module" src="../src/no_auth_required.js"></script>
-  <script type="module" src="../src/main.js"></script>
+  <script type="module" src="../src/main.js" defer></script>
 </head>
 
 <body>
@@ -52,7 +52,7 @@
       <label>Password</label>
       <input type="Password" class="form-control" id="inputPassword">
     </div>
-    <button class="btn btn-outline-success my-2 my-sm-0" onclick="login()" type="submit">Log In</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" id="login-button" type="submit">Log In</button>
   </div>
 </body>
 
