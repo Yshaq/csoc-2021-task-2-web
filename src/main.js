@@ -111,6 +111,7 @@ function addTask() {
 }
 
 function editTask(id) {
+    console.log(`editing task ${id}`);
     document.getElementById('task-' + id).classList.add('hideme');
     document.getElementById('task-actions-' + id).classList.add('hideme');
     document.getElementById('input-button-' + id).classList.remove('hideme');
@@ -118,6 +119,7 @@ function editTask(id) {
 }
 
 function deleteTask(id) {
+    console.log(`deleting task ${id}`);
     /**
      * @todo Complete this function.
      * @todo 1. Send the request to delete the task to the backend server.
@@ -126,6 +128,7 @@ function deleteTask(id) {
 }
 
 function updateTask(id) {
+    console.log(`updating task ${id}`);
     /**
      * @todo Complete this function.
      * @todo 1. Send the request to update the task to the backend server.
