@@ -1,4 +1,4 @@
-//console.log('main.js executed!');
+console.log('main.js start!');
 
 import axios from 'axios';
 function displaySuccessToast(message) {
@@ -102,15 +102,16 @@ function login() {
     });
 }
 
-function addTask() {
+export function addTask() {
     /**
      * @todo Complete this function.
      * @todo 1. Send the request to add the task to the backend server.
      * @todo 2. Add the task in the dom.
      */
+    console.log("add task called!");
 }
 
-function editTask(id) {
+export function editTask(id) {
     console.log(`editing task ${id}`);
     document.getElementById('task-' + id).classList.add('hideme');
     document.getElementById('task-actions-' + id).classList.add('hideme');
@@ -118,7 +119,7 @@ function editTask(id) {
     document.getElementById('done-button-' + id).classList.remove('hideme');
 }
 
-function deleteTask(id) {
+export function deleteTask(id) {
     console.log(`deleting task ${id}`);
     /**
      * @todo Complete this function.
@@ -127,7 +128,7 @@ function deleteTask(id) {
      */
 }
 
-function updateTask(id) {
+export function updateTask(id) {
     console.log(`updating task ${id}`);
     /**
      * @todo Complete this function.
@@ -150,3 +151,6 @@ if(document.getElementById("logout-button")) {
 
 }
 
+document.getElementById("add-task-button").addEventListener("click", addTask);
+
+console.log("main.js end");

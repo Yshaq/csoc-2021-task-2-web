@@ -1,5 +1,9 @@
+console.log("init.js start");
+
 import axios from 'axios';
 const API_BASE_URL = 'https://todo-app-csoc.herokuapp.com/';
+
+import {updateTask, editTask, addTask, deleteTask} from './main.js';
 
 
 function getTasks() {
@@ -17,8 +21,7 @@ function getTasks() {
      }).then(res => {
          const todos = res.data;
 
-         for(const todo of todos) {
-             console.log(todo);
+         for(var todo of todos) {
              taskList.innerHTML += `
              <li class="list-group-item d-flex justify-content-between align-items-center">
 
@@ -42,12 +45,11 @@ function getTasks() {
                         </button>
                     </span>
             </li>
-             `
-             /*
-            document.getElementById(`update-task-${todo.id}-button`).addEventListener("click", updateTask);
-            document.getElementById(`delete-task-${todo.id}-button`).addEventListener("click", deleteTask);
-            document.getElementById(`edit-task-${todo.id}-button`).addEventListener("click", editTask);
-            */
+             `;
+
+            document.getElementById(`update-task-${todo.id}-button`).addEventListener("click", function() {updateTask(todo.id)});
+            document.getElementById(`delete-task-${todo.id}-button`).addEventListener("click", function() {deleteTask(todo.id)});
+            document.getElementById(`edit-task-${todo.id}-button`).addEventListener("click", function() {editTask(todo.id)});   
             
 
          }
@@ -65,3 +67,6 @@ axios({
   document.getElementById('profile-name').innerHTML = data.name;
   getTasks();
 })
+
+
+console.log("init.js end");
